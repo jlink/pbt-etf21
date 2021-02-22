@@ -10,9 +10,9 @@ class ProjectTests {
 	void can_add_many_team_members_to_a_project() {
 		Project project = new Project("My big project");
 
-		var alex = new User("alex@example.com");
-		var kim = new User("kim@example.com");
-		var pat = new User("pat@example.com");
+		User alex = new User("alex@example.com");
+		User kim = new User("kim@example.com");
+		User pat = new User("pat@example.com");
 		project.addMember(alex);
 		project.addMember(kim);
 		project.addMember(pat);
