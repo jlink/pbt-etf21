@@ -13,7 +13,7 @@ public class Project {
 	}
 
 	public Project(String name, int membersLimit) {
-		if (name.isBlank()) {
+		if (isBlank(name)) {
 			throw new IllegalArgumentException("Project name must not be blank");
 		}
 		this.name = name;
@@ -40,5 +40,9 @@ public class Project {
 
 	private boolean emailKnown(String email) {
 		return members.stream().anyMatch(m -> m.getEmail().equals(email));
+	}
+
+	private boolean isBlank(String projectName) {
+		return projectName.trim().isEmpty();
 	}
 }
