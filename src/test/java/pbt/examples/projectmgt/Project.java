@@ -13,8 +13,11 @@ public class Project {
 	}
 
 	public Project(String name, int membersLimit) {
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException("Project name must not be empty");
+		}
 		if (isBlank(name)) {
-			throw new IllegalArgumentException("Project name must not be blank");
+			throw new IllegalArgumentException("Project name must not contain only whitespace");
 		}
 		this.name = name;
 		this.membersLimit = membersLimit;
