@@ -5,20 +5,19 @@ import net.jqwik.api.constraints.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Label("German zip code")
+@Label("Generated German zip codes")
 class ZipCodePropertiesSolution {
 
-	@Property(generation = GenerationMode.EXHAUSTIVE)
-	@Label("is valid")
-	void germanZipCodeIsValid(@ForAll("germanZipCodes") String germanZipCode) {
-		Assume.that(!germanZipCode.matches("00\\d+"));
+	@Property //(generation = GenerationMode.EXHAUSTIVE)
+	@Label("are valid")
+	void germanZipCodesAreValid(@ForAll("germanZipCodes") String germanZipCode) {
 		assertThat(germanZipCode).hasSize(5);
 		isValidGermanZipCode(germanZipCode);
 	}
 
 	@Property
 	@Label("through annotations only")
-	void germanZipCodeThroughAnnotationsOnly(@ForAll @StringLength(5) @CharRange(from = '0', to = '9') String germanZipCode) {
+	void germanZipCodesThroughAnnotationsOnly(@ForAll @StringLength(5) @CharRange(from = '0', to = '9') String germanZipCode) {
 		Assume.that(!germanZipCode.matches("00\\d+"));
 		assertThat(germanZipCode).hasSize(5);
 		isValidGermanZipCode(germanZipCode);

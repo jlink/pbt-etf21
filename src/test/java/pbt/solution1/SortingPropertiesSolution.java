@@ -54,6 +54,7 @@ class SortingPropertiesSolution {
 		Assertions.assertThat(sort(aList)).isNotNull();
 	}
 
+	// Extracted total sort function that DOES NOT CHANGE original list
 	private <T extends Comparable<? super T>> List<T> sort(List<T> original) {
 		List<T> clone = new ArrayList<>(original);
 		Collections.sort(clone);
