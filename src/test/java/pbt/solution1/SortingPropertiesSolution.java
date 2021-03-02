@@ -50,6 +50,7 @@ class SortingPropertiesSolution {
 	}
 
 	@Property
+	//@Report(Reporting.GENERATED)
 	<T extends Comparable<T>> void anyListOfComparablesCanBeSorted(@ForAll List<T> aList) {
 		Assertions.assertThat(sort(aList)).isNotNull();
 	}
